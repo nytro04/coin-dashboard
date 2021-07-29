@@ -19,9 +19,10 @@ module.exports = {
     extend: {
       colors: {
         gray: colors.trueGray,
-        primary: '#536AD8',
-        'primary-dark': '#4556AA',
-        'primary-light': '#7D8FE6'
+        primary: '#6800f2',
+        'sec-dark': '#1b1720',
+        'sec-darker': '#121016',
+        'icon-color': '#3d64fa'
       }
     }
   },
