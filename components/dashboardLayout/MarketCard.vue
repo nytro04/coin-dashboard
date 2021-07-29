@@ -18,7 +18,8 @@ export default {
 <style lang="scss" scoped>
 .card {
   /* height: 95vh; */
-  width: 100%;
+  /* width: 100%; */
   @apply rounded-xl bg-sec-dark;
+  flex: 1;
 }
 </style>

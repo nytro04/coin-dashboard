@@ -1,9 +1,17 @@
 <template>
   <div class="min-h-screen">
-    <div class="flex justify-between">
-      <MarketCard />
-      <div class="">main</div>
-      <SidebarRight />
+    <div
+      class="grid grid-cols-1 gap-4 overflow-hidden md:grid-cols-12 main-dash"
+    >
+      <div class="col-start-1 col-end-1">
+        <SidebarLeft />
+      </div>
+      <div class="col-start-2 col-end-10 cards">
+        <MarketCard title="Market Leaders" />
+      </div>
+      <div class="col-start-10 col-end-13">
+        <SidebarRight />
+      </div>
     </div>
   </div>
 </template>

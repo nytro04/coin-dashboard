@@ -9,7 +9,7 @@ export default {}
 <style lang="scss" scoped>
 .sidebar-right {
   height: 95vh;
-  width: 17rem;
+  /* width: 17rem; */
   @apply rounded-xl bg-sec-dark;
 }
 </style>
