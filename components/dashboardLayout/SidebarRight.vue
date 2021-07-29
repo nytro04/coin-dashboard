@@ -10,6 +10,6 @@ export default {}
 .sidebar-right {
   height: 95vh;
   /* width: 17rem; */
-  @apply rounded-xl bg-sec-dark;
+  @apply rounded-2xl bg-sec-dark;
 }
 </style>

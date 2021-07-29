@@ -11,13 +11,13 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
 
-    loading: { color: '#fff' },
+  loading: { color: '#fff' },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['~/assets/scss/main.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [{ src: '~/plugins/vue-trend.js' }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   // components: false,
@@ -37,11 +37,23 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
 
+    '@nuxtjs/dotenv',
+    // '@nuxtjs/proxy',
     '@nuxtjs/svg'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: process.env.API_ENDPOINT,
+    proxyHeaders: false,
+    credentials: false
+    // credentials: true,
+    // withCredentials: true
+  },
+
+  // proxy: {
+  //   '/api/': { target: 'https://api.coingecko.com/api/v3' }
+  // },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {

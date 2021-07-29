@@ -10,6 +10,10 @@
   height: 95vh;
 }
 
+.text-color {
+  color: #3be600;
+}
+
 .card {
   flex-grow: 1;
 }
