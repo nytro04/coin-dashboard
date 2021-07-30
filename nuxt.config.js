@@ -68,5 +68,9 @@ export default {
   transition: {
     name: 'fade',
     mode: 'out-in'
+  },
+
+  env: {
+    baseUrl: process.env.API_ENDPOINT
   }
 }
