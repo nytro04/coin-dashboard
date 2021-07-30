@@ -142,7 +142,12 @@
         <!-- <AllCoins title="All Coins" /> -->
       </div>
       <div v-if="coinDetails" class="col-start-10 col-end-13 overflow-y-auto">
-        <div class="overflow-y-auto sidebar-right">
+        <div class="relative overflow-y-auto sidebar-right">
+          <img
+            :src="coinDetails.image.small"
+            :alt="coinDetails.name"
+            class="icon"
+          />
           <h4 class="relative pt-5 mb-3 ml-5 text-lg font-semibold">
             Info Card
           </h4>
@@ -356,5 +361,11 @@ select option {
   height: 95vh;
   /* width: 17rem; */
   @apply rounded-2xl bg-sec-dark;
+}
+
+.icon {
+  position: absolute;
+  right: 1.5rem;
+  top: -1rem;
 }
 </style>
