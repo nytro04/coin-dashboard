@@ -1,18 +1,18 @@
 <template>
-  <div class="px-5 py-5 overflow-y-auto card">
+  <div class="px-2 py-5 overflow-y-auto card">
     <h2 class="mb-8 text-3xl font-semibold">{{ title }}</h2>
-    <div class="flex flex-wrap w-full">
-      <div
+    <ul class="flex flex-wrap w-full">
+      <li
         v-for="market in coins"
         :key="market.ath"
-        class="px-5 my-5 text-2xl  rounded-2xl bg-primary md:w-1/2 lg:my-4 lg:px-4 lg:w-1/4"
+        class="w-full h-10 mx-auto my-5  rounded-2xl bg-primary md:w-1/2 lg:w-1/4"
       >
         <h4 class="text-lg">
           {{ market.name }}
           <span class="uppercase">{{ `(${market.symbol})` }}</span>
         </h4>
-      </div>
-    </div>
+      </li>
+    </ul>
   </div>
 </template>
 
