@@ -4,7 +4,9 @@
       class="grid grid-cols-1 gap-10 overflow-hidden md:grid-cols-12 main-dash"
     >
       <div class="col-start-1 col-end-1">
-        <SidebarLeft />
+
+          <SidebarLeft board="index" />
+
       </div>
       <div class="col-start-2 col-end-10 space-y-5 overflow-y-auto cards">
         <MarketCard title="Market Leaders" />

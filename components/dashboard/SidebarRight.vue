@@ -11,7 +11,7 @@
         v-for="event in events"
         v-else
         :key="event.title"
-        class="relative p-5 m-5 overflow-y-auto h-36 w-72 rounded-2xl bg-primary"
+        class="relative p-5 m-5 overflow-y-auto  h-36 w-72 rounded-2xl bg-primary"
       >
         <h4 class="mb-3 text-base font-semibold">
           {{ event.title }}
@@ -77,7 +77,7 @@ export default {
 
 <style lang="scss" scoped>
 .sidebar-right {
-  height: 95vh;
+  height: 92.5vh;
   /* width: 17rem; */
   @apply rounded-2xl bg-sec-dark;
 

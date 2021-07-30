@@ -5,12 +5,14 @@
     >
       <!-- {{ coinDetails }} -->
       <div class="col-start-1 col-end-1">
-        <SidebarLeft />
+        <SidebarLeft board="single" />
       </div>
-      <div class="col-start-2 col-end-10 space-y-5 overflow-y-auto cards">
-        <div v-if="loading" class="text-center">
-          <LoadingSvg />
-          <p class="mt-5">Loading...</p>
+      <div class="col-start-2 col-end-10 space-y-5 overflow-y-auto">
+        <div v-if="loading" class="text-center card">
+          <div class="mt-20">
+            <LoadingSvg />
+            <p class="mt-5">Loading...</p>
+          </div>
         </div>
         <div v-if="!loading && coinDetails" class="card">
           <div class="flex pt-5">
@@ -50,7 +52,13 @@
         </div>
 
         <div class="flex justify-between">
-          <div class="w-1/2 p-5 mr-5 card">
+          <div v-if="loading" class="w-1/2 text-center card">
+            <div class="mt-20">
+              <LoadingSvg />
+              <p class="mt-5">Loading...</p>
+            </div>
+          </div>
+          <div v-if="!loading && coinDetails" class="w-1/2 p-5 mr-5 card">
             <h2 v-if="coinDetails" class="mb-8 mr-10 text-2xl font-semibold">
               Exchange
             </h2>
@@ -130,8 +138,14 @@
               </div>
             </div>
           </div>
-          <div v-if="coinDetails" class="self-end w-1/2 py-12 ml-5 card-sm">
-            <div class="text-center">
+          <div class="self-end w-1/2 py-12 ml-5 card-sm">
+            <div v-if="loading" class="w-1/2 text-center card">
+              <div class="mt-20">
+                <LoadingSvg />
+                <p class="mt-5">Loading...</p>
+              </div>
+            </div>
+            <div v-if="!loading && coinDetails" class="text-center">
               <h4 class="mb-5 text-2xl text-gray-300">Alexa Rank</h4>
               <h4 class="text-2xl font-semibold text-gray-300">
                 {{ coinDetails.public_interest_stats.alexa_rank }}
@@ -141,8 +155,20 @@
         </div>
         <!-- <AllCoins title="All Coins" /> -->
       </div>
-      <div v-if="coinDetails" class="col-start-10 col-end-13 overflow-y-auto">
-        <div class="relative overflow-y-auto sidebar-right">
+      <div class="col-start-10 col-end-13 overflow-y-auto">
+        <div
+          v-if="loading"
+          class="relative overflow-y-auto text-center sidebar-right"
+        >
+          <div class="mt-20">
+            <LoadingSvg />
+            <p class="mt-5">Loading...</p>
+          </div>
+        </div>
+        <div
+          v-if="!loading && coinDetails"
+          class="relative overflow-y-auto sidebar-right"
+        >
           <img
             :src="coinDetails.image.thumb"
             :alt="coinDetails.name"
@@ -358,7 +384,7 @@ select option {
 }
 
 .sidebar-right {
-  height: 95vh;
+  height: 92.5vh;
   /* width: 17rem; */
   @apply rounded-2xl bg-sec-dark;
 }
