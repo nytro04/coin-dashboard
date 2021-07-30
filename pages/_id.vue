@@ -1,5 +1,6 @@
 <template>
   <div class="min-h-screen overflow-y-auto">
+    <TopNav />
     <div
       class="grid grid-cols-1 gap-10 overflow-hidden md:grid-cols-12 main-dash"
     >
@@ -128,6 +129,7 @@
                   </span>
                 </div>
                 <button
+                  disabled
                   class="flex items-center justify-between w-1/2 h-12 px-4 py-2  bg-icon-color rounded-xl"
                 >
                   <span class="text-white"> Exchange </span>
@@ -278,6 +280,7 @@ import WWWSvg from '~/assets/svgs/www.svg?inline'
 export default {
   components: {
     SidebarLeft: () => import('~/components/dashboardLayout/Sidebar.vue'),
+    TopNav: () => import('~/components/dashboardLayout/TopNav.vue'),
     // SidebarRight: () => import('~/components/dashboard/SidebarRight.vue'),
     // MarketCard: () => import('~/components/dashboard/MarketCard.vue'),
     // AllCoins: () => import('~/components/dashboard/AllCoins.vue'),
