@@ -334,8 +334,6 @@ export default {
           params: this.params,
         })
 
-        console.log(res, 'res ')
-
         // this.coinDetails = res?. ?? null
         this.coinDetails = res
 

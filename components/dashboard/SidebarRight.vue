@@ -1,6 +1,6 @@
 <template>
   <div class="relative overflow-x-hidden overflow-y-auto px-auto sidebar-right">
-    <h2 class="mb-8 text-3xl font-semibold">{{ title }}</h2>
+    <h2 class="pt-8 pl-8 mb-8 text-xl font-semibold">{{ title }}</h2>
 
     <ul>
       <li v-if="loading" class="text-center">
