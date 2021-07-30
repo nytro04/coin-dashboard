@@ -3,14 +3,15 @@
     <h2 class="mb-8 text-3xl font-semibold">{{ title }}</h2>
 
     <ul>
-      <li v-if="loading">
+      <li v-if="loading" class="text-center">
         <LoadingSvg />
-        <p class="text-center">Loading...</p>
+        <p class="mt-5">Loading...</p>
       </li>
       <li
         v-for="event in events"
+        v-else
         :key="event.title"
-        class="relative p-5 m-5 overflow-y-auto  h-36 w-72 rounded-2xl bg-primary"
+        class="relative p-5 m-5 overflow-y-auto h-36 w-72 rounded-2xl bg-primary"
       >
         <h4 class="mb-3 text-base font-semibold">
           {{ event.title }}
