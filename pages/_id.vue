@@ -144,7 +144,7 @@
       <div v-if="coinDetails" class="col-start-10 col-end-13 overflow-y-auto">
         <div class="relative overflow-y-auto sidebar-right">
           <img
-            :src="coinDetails.image.small"
+            :src="coinDetails.image.thumb"
             :alt="coinDetails.name"
             class="icon"
           />
@@ -366,6 +366,6 @@ select option {
 .icon {
   position: absolute;
   right: 1.5rem;
-  top: -1rem;
+  top: 0.5rem;
 }
 </style>
