@@ -21,9 +21,9 @@
 export default {
   components: {
     SidebarLeft: () => import('~/components/dashboardLayout/Sidebar.vue'),
-    SidebarRight: () => import('~/components/dashboardLayout/SidebarRight.vue'),
-    MarketCard: () => import('~/components/dashboardLayout/MarketCard.vue'),
-    AllCoins: () => import('~/components/dashboardLayout/AllCoins.vue'),
+    SidebarRight: () => import('~/components/dashboard/SidebarRight.vue'),
+    MarketCard: () => import('~/components/dashboard/MarketCard.vue'),
+    AllCoins: () => import('~/components/dashboard/AllCoins.vue'),
   },
 }
 </script>

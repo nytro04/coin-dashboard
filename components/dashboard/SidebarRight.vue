@@ -3,6 +3,10 @@
     <h2 class="mb-8 text-3xl font-semibold">{{ title }}</h2>
 
     <ul>
+      <li v-if="loading">
+        <LoadingSvg />
+        <p class="text-center">Loading...</p>
+      </li>
       <li
         v-for="event in events"
         :key="event.title"
@@ -26,9 +30,12 @@
 import { mapActions } from 'vuex'
 
 import LinkSvg from '~/assets/svgs/link.svg?inline'
+import LoadingSvg from '~/assets/svgs/loading.svg?inline'
+
 export default {
   components: {
     LinkSvg,
+    LoadingSvg,
   },
   props: {
     title: {
@@ -58,6 +65,7 @@ export default {
         const res = await this.$axios.$get('/events')
 
         this.events = res.data
+        this.loading = false
       } catch (error) {
         console.log(error, 'error fetching coins')
       }

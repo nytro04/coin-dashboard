@@ -2,6 +2,10 @@
   <div class="px-5 py-5 overflow-y-auto card">
     <h2 class="mb-8 text-3xl font-semibold">{{ title }}</h2>
     <ul class="">
+      <li v-if="loading">
+        <LoadingSvg />
+        <p class="text-center">Loading...</p>
+      </li>
       <li
         v-for="market in marketLeaders"
         :key="market.ath"
@@ -36,7 +40,13 @@
 
 <script>
 import { mapActions } from 'vuex'
+
+import LoadingSvg from '~/assets/svgs/loading.svg?inline'
 export default {
+  components: {
+    LoadingSvg,
+  },
+
   props: {
     title: {
       type: String,
@@ -70,6 +80,8 @@ export default {
         const res = await this.$axios.$get('/coins/markets', {
           params: this.params,
         })
+
+        this.loading = false
 
         this.marketLeaders = res
         this.setCoins(res)

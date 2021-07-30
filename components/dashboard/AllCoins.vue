@@ -5,7 +5,7 @@
       <li
         v-for="market in coins"
         :key="market.ath"
-        class="w-full h-10 mx-auto my-5  rounded-2xl bg-primary md:w-1/2 lg:w-1/4"
+        class="w-full h-10 mx-auto my-5 rounded-2xl bg-primary md:w-1/2 lg:w-1/4"
       >
         <h4 class="text-lg">
           {{ market.name }}
