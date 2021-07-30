@@ -141,9 +141,96 @@
         </div>
         <!-- <AllCoins title="All Coins" /> -->
       </div>
-      <!-- <div class="col-start-10 col-end-13">
-        <SidebarRight />
-      </div> -->
+      <div v-if="coinDetails" class="col-start-10 col-end-13 overflow-y-auto">
+        <div class="overflow-y-auto sidebar-right">
+          <h4 class="relative pt-5 mb-3 ml-5 text-lg font-semibold">
+            Info Card
+          </h4>
+          <div
+            class="p-5 m-5 overflow-x-hidden overflow-y-auto  h-36 w-72 rounded-2xl bg-primary"
+          >
+            Description:
+            <p class="ml-5 text-sm text-gray-300">
+              {{ coinDetails.description.en }}
+            </p>
+          </div>
+
+          <div v-if="coinDetails" class="flex justify-between px-5 mt-8">
+            <a
+              :href="coinDetails.links.homepage[0]"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="px-5 py-3 bg-black rounded-lg svg-icons">
+                <p class="inline-block text-gray-400">Website</p>
+
+                <WWWSvg class="inline-block w-12 h-12" />
+              </div>
+            </a>
+            <a
+              :href="coinDetails.links.subreddit_url"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="p-2 bg-black rounded-lg link-svg">
+                <RedditSvg class="w-8 h-8" />
+              </div>
+            </a>
+            <a
+              :href="coinDetails.links.repos_url.github[0]"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="p-2 rounded-lg bg-icon-color link-svg">
+                <GithubSvg class="w-8 h-8" />
+              </div>
+            </a>
+          </div>
+
+          <div v-if="coinDetails" class="px-5 mt-5">
+            <h4
+              class="relative pt-5 pb-3 mb-3 ml-5 text-lg font-semibold border-b-2 border-purple-800 "
+            >
+              Facts
+            </h4>
+
+            <div class="px-5 space-y-8">
+              <h4 class="flex justify-between text-gray-300">
+                <span>Hashing Algorithm</span>
+                <span>{{ coinDetails.hashing_algorithm }}</span>
+              </h4>
+              <h4 class="flex justify-between text-gray-300">
+                <span>Country Origin</span>
+                <span>{{ coinDetails.country_origin }}</span>
+              </h4>
+              <h4 class="flex justify-between text-gray-300">
+                <span>Categories</span>
+                <span>{{ coinDetails.categories[0] }}</span>
+              </h4>
+            </div>
+          </div>
+
+          <div
+            v-if="coinDetails"
+            class="p-5 m-5 mt-8 overflow-x-hidden overflow-y-auto  h-36 w-72 rounded-2xl bg-primary"
+          >
+            <div class="px-5 space-y-5">
+              <h4 class="flex justify-between text-gray-300">
+                <span>Total Supply</span>
+                <span>{{ coinDetails.market_data.total_supply }}</span>
+              </h4>
+              <h4 class="flex justify-between text-gray-300">
+                <span>Max Supply</span>
+                <span>{{ coinDetails.market_data.max_supply }}</span>
+              </h4>
+              <h4 class="flex justify-between text-gray-300">
+                <span>Circulating Supply</span>
+                <span>{{ coinDetails.market_data.circulating_supply }}</span>
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -154,6 +241,9 @@ import LoadingSvg from '~/assets/svgs/loading.svg?inline'
 import RisingSvg from '~/assets/svgs/rise.svg?inline'
 import FallingSvg from '~/assets/svgs/fall.svg?inline'
 import RightSvg from '~/assets/svgs/right.svg?inline'
+import RedditSvg from '~/assets/svgs/reddit.svg?inline'
+import GithubSvg from '~/assets/svgs/github.svg?inline'
+import WWWSvg from '~/assets/svgs/www.svg?inline'
 export default {
   components: {
     SidebarLeft: () => import('~/components/dashboardLayout/Sidebar.vue'),
@@ -165,6 +255,9 @@ export default {
     RisingSvg,
     FallingSvg,
     RightSvg,
+    RedditSvg,
+    GithubSvg,
+    WWWSvg,
   },
   props: {},
   data() {
@@ -257,5 +350,11 @@ select option {
       left: 0.5rem;
       position: absolute; */
   }
+}
+
+.sidebar-right {
+  height: 95vh;
+  /* width: 17rem; */
+  @apply rounded-2xl bg-sec-dark;
 }
 </style>
