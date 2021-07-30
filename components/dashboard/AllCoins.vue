@@ -1,6 +1,6 @@
 <template>
   <div class="px-2 py-5 overflow-y-auto card">
-    <h2 class="mb-8 text-3xl font-semibold">{{ title }}</h2>
+    <h2 class="mb-8 ml-5 text-3xl font-semibold">{{ title }}</h2>
     <div>
       <li v-if="loading" class="text-center">
         <LoadingSvg />
@@ -11,12 +11,14 @@
         <li
           v-for="market in coins"
           :key="market.id"
-          class="w-full h-10 mx-auto my-5 rounded-2xl bg-primary md:w-1/2 lg:w-1/4"
+          class="w-full px-4 py-5 m-4 overflow-hidden  rounded-2xl bg-primary md:w-1/2 lg:w-1/5"
         >
-          <h4 class="text-lg">
-            {{ market.name }}
-            <span class="uppercase">{{ `(${market.symbol})` }}</span>
-          </h4>
+          <div class="overflow-hidden">
+            <h4 class="">
+              {{ market.name }}
+              <span class="uppercase">{{ `(${market.symbol})` }}</span>
+            </h4>
+          </div>
         </li>
       </ul>
     </div>
@@ -79,7 +81,6 @@ export default {
   /* height: 95vh; */
   /* width: 100%; */
   @apply rounded-2xl bg-sec-dark;
-  flex: 1;
   height: 45vh;
 }
 </style>

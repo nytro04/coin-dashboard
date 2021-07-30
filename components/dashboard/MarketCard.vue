@@ -9,8 +9,8 @@
       <li v-else>
         <nuxt-link
           v-for="market in marketLeaders"
-          :key="market.ath"
-          :to="market.ath"
+          :key="market.id"
+          :to="market.id"
           class="flex justify-between w-full px-8 py-5 my-5 text-2xl rounded-2xl bg-primary"
         >
           <h4 class="w-3/12">
