@@ -11,5 +11,6 @@ export default {}
   height: 95vh;
   /* width: 4rem; */
   @apply rounded-2xl bg-sec-dark;
+  width: 5rem;
 }
 </style>

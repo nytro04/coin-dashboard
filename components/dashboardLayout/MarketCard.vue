@@ -1,13 +1,13 @@
 <template>
-  <div class="px-5 py-5 card">
+  <div class="px-5 py-5 overflow-y-auto card">
     <h2 class="mb-8 text-3xl font-semibold">{{ title }}</h2>
     <ul class="">
       <li
         v-for="market in marketLeaders"
         :key="market.ath"
-        class="flex justify-between w-full px-8 py-5 my-5 text-2xl  rounded-2xl bg-primary"
+        class="flex justify-between w-full px-8 py-5 my-5 text-2xl rounded-2xl bg-primary"
       >
-        <h4 class="2/12">
+        <h4 class="w-3/12">
           {{ market.name }}
           <span class="uppercase">{{ `(${market.symbol})` }}</span>
         </h4>
@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
   props: {
     title: {
@@ -59,6 +60,9 @@ export default {
   },
 
   methods: {
+    ...mapActions({
+      setCoins: 'coins/setCoins',
+    }),
     async fetchMartketsLeaders() {
       this.loading = true
 
@@ -68,7 +72,7 @@ export default {
         })
 
         this.marketLeaders = res
-
+        this.setCoins(res)
         console.log(res, 'coins')
       } catch (error) {
         console.log(error, 'error fetching coins')
@@ -84,5 +88,6 @@ export default {
   /* width: 100%; */
   @apply rounded-2xl bg-sec-dark;
   flex: 1;
+  height: 45vh;
 }
 </style>
