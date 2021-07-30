@@ -13,12 +13,12 @@
           :key="market.id"
           class="w-full px-4 py-5 m-4 overflow-hidden  rounded-2xl bg-primary md:w-1/2 lg:w-1/5"
         >
-          <div class="overflow-hidden">
+          <nuxt-link :to="market.id" class="overflow-hidden">
             <h4 class="">
               {{ market.name }}
               <span class="uppercase">{{ `(${market.symbol})` }}</span>
             </h4>
-          </div>
+          </nuxt-link>
         </li>
       </ul>
     </div>
