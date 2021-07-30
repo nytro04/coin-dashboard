@@ -73,7 +73,7 @@
                 <select
                   v-model="exchange.sell"
                   name="sell"
-                  class="w-3/5 py-2 pl-2 border rounded outline-none"
+                  class="w-3/5 py-2 pl-2 border rounded outline-none cool"
                   required
                 >
                   <!-- @change="fetchExchange()" -->
@@ -100,11 +100,12 @@
                 <select
                   v-model="exchange.buy"
                   name="buy"
-                  class="w-3/5 py-2 pl-2 border rounded outline-none"
+                  class="w-3/5 py-2 pl-2 border rounded outline-none cool"
                   required
                 >
                   <!-- @change="fetchExchange()" -->
-                  <option value="" selected disabled>BTC</option>
+                  <option selected value="" disabled>BTC</option>
+                  <!-- <option value="" selected disabled>BTC</option> -->
                   <option
                     v-for="(buy, index) in coinDetails.tickers"
                     :key="index"
@@ -367,10 +368,11 @@ export default {
   /* height: 25vh; */
 }
 
-select option {
+.cool {
   /* margin: 40px; */
-  background: #1b1720 !important;
-  color: #fff;
+  background-color: #121016 !important;
+  color: #3d64fa;
+  border: 0.2px solid #1b1720;
   /* text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4); */
 }
 
