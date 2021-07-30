@@ -53,32 +53,91 @@
           <div class="w-1/2 p-5 mr-5 card">
             <h2 v-if="coinDetails" class="mb-8 mr-10 text-2xl font-semibold">
               Exchange
-              <!-- {{ coinDetails }} -->
             </h2>
-            <div v-if="coinDetails" class="flex justify-between">
-              <div class="flex w-1/2">
-                <h5 class="mr-8">Sell</h5>
-                <h3>{{ coinDetails.market_data.current_price.usd }}</h3>
-              </div>
-              <select
-                v-model="exchange.sell"
-                name="sell"
-                class="w-1/2 py-2 pl-2 border rounded outline-none"
-                required
-              >
-                <!-- @change="fetchExchange()" -->
-                <option value="USD"></option>
-                <option
-                  v-for="(sell, index) in coinDetails.tickers"
-                  :key="index"
-                  :value="sell.target"
+
+            <div class="">
+              <div v-if="coinDetails" class="flex justify-between">
+                <div class="flex w-1/2">
+                  <h5 class="mr-8 text-gray-400">Sell</h5>
+                  <h3>{{ coinDetails.market_data.current_price.usd }}</h3>
+                </div>
+                <select
+                  v-model="exchange.sell"
+                  name="sell"
+                  class="w-3/5 py-2 pl-2 border rounded outline-none"
+                  required
                 >
-                  {{ sell.target }}
-                </option>
-              </select>
+                  <!-- @change="fetchExchange()" -->
+                  <option selected value="" disabled>USD</option>
+                  <option
+                    v-for="(sell, index) in coinDetails.tickers"
+                    :key="index"
+                    :value="sell.target"
+                  >
+                    {{ sell.target }}
+                  </option>
+                </select>
+              </div>
+
+              <div v-if="coinDetails" class="flex justify-between mt-10">
+                <div class="flex w-1/2">
+                  <h5 class="mr-8 text-gray-400">Buy</h5>
+                  <h3>
+                    {{
+                      coinDetails.market_data.market_cap_change_percentage_24h
+                    }}
+                  </h3>
+                </div>
+                <select
+                  v-model="exchange.buy"
+                  name="buy"
+                  class="w-3/5 py-2 pl-2 border rounded outline-none"
+                  required
+                >
+                  <!-- @change="fetchExchange()" -->
+                  <option value="" selected disabled>BTC</option>
+                  <option
+                    v-for="(buy, index) in coinDetails.tickers"
+                    :key="index"
+                    :value="buy.base"
+                  >
+                    {{ buy.base }}
+                  </option>
+                </select>
+              </div>
+
+              <div
+                v-if="coinDetails"
+                class="flex items-center justify-between mt-10 text-gray-400"
+              >
+                <div class="">
+                  <span>
+                    <span> 1 BTC </span>
+                    <span> = </span>
+                  </span>
+                  <span>
+                    {{ coinDetails.market_data.current_price.usd }} USD
+                  </span>
+                </div>
+                <button
+                  class="flex items-center justify-between w-1/2 h-12 px-4 py-2  bg-icon-color rounded-xl"
+                >
+                  <span class="text-white"> Exchange </span>
+                  <span class="">
+                    <RightSvg class="h-4" style="fill: white" />
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
-          <div class="w-1/2 ml-5 card-sm">soool</div>
+          <div v-if="coinDetails" class="self-end w-1/2 py-12 ml-5 card-sm">
+            <div class="text-center">
+              <h4 class="mb-5 text-2xl text-gray-300">Alexa Rank</h4>
+              <h4 class="text-2xl font-semibold text-gray-300">
+                {{ coinDetails.public_interest_stats.alexa_rank }}
+              </h4>
+            </div>
+          </div>
         </div>
         <!-- <AllCoins title="All Coins" /> -->
       </div>
@@ -94,6 +153,7 @@ import { mapActions } from 'vuex'
 import LoadingSvg from '~/assets/svgs/loading.svg?inline'
 import RisingSvg from '~/assets/svgs/rise.svg?inline'
 import FallingSvg from '~/assets/svgs/fall.svg?inline'
+import RightSvg from '~/assets/svgs/right.svg?inline'
 export default {
   components: {
     SidebarLeft: () => import('~/components/dashboardLayout/Sidebar.vue'),
@@ -104,6 +164,7 @@ export default {
     LoadingSvg,
     RisingSvg,
     FallingSvg,
+    RightSvg,
   },
   props: {},
   data() {
@@ -178,6 +239,23 @@ export default {
   /* width: 100%; */
   @apply rounded-2xl bg-sec-dark;
 
-  height: 25vh;
+  /* height: 25vh; */
+}
+
+select option {
+  /* margin: 40px; */
+  background: #1b1720 !important;
+  color: #fff;
+  /* text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4); */
+}
+
+.svg-icons {
+  svg {
+    fill: #3d64fa;
+    height: 1rem;
+    /* top: 0.5rem;
+      left: 0.5rem;
+      position: absolute; */
+  }
 }
 </style>
