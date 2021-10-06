@@ -15,6 +15,7 @@
         <SidebarRight title="Events" />
       </div>
     </div>
+    <h1>add semantic releases</h1>
   </div>
 </template>
 
@@ -25,8 +26,8 @@ export default {
     SidebarRight: () => import('~/components/dashboard/SidebarRight.vue'),
     MarketCard: () => import('~/components/dashboard/MarketCard.vue'),
     AllCoins: () => import('~/components/dashboard/AllCoins.vue'),
-    TopNav: () => import('~/components/dashboardLayout/TopNav.vue'),
-  },
+    TopNav: () => import('~/components/dashboardLayout/TopNav.vue')
+  }
 }
 </script>
 
