@@ -1,6 +1,6 @@
 {
   "name": "coin-dashboard",
-  "version": "1.0.0",
+  "version": "1.0.0-development",
   "private": true,
   "scripts": {
     "dev": "nuxt",
@@ -43,6 +43,7 @@
     "prettier": "^2.3.2",
     "sass": "^1.36.0",
     "sass-loader": "^10.2.0",
+    "semantic-release": "^18.0.0",
     "tailwindcss": "^2.2.7",
     "vue-jest": "^3.0.4"
   }
