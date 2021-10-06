@@ -46,5 +46,11 @@
     "semantic-release": "^18.0.0",
     "tailwindcss": "^2.2.7",
     "vue-jest": "^3.0.4"
+  },
+  "release": {
+    "branches": [
+      "master",
+      "next"
+    ]
   }
 }
