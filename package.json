@@ -1,6 +1,6 @@
 {
   "name": "coin-dashboard",
-  "version": "1.0.0",
+  "version": "1.0.0-development",
   "private": true,
   "scripts": {
     "dev": "nuxt",
