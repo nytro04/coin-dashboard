@@ -5,6 +5,7 @@
     <!-- <Chart : /> -->
 
     <h2>Testing semantic release</h2>
+
     <h2>Testing semantic release 2</h2>
   </div>
 </template>
