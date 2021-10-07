@@ -3,6 +3,8 @@
     <h2 class="mb-8 text-3xl font-semibold">{{ title }}</h2>
 
     <!-- <Chart : /> -->
+
+    <h2>Testing semantic release</h2>
   </div>
 </template>
 
@@ -17,8 +19,8 @@ export default {
   props: {
     title: {
       type: String,
-      default: '',
-    },
+      default: ''
+    }
   },
 
   data() {
@@ -27,8 +29,8 @@ export default {
       marketLeaders: [],
       params: {
         vs_currency: 'usd',
-        sparkline: true,
-      },
+        sparkline: true
+      }
     }
   },
 
@@ -38,14 +40,14 @@ export default {
 
   methods: {
     ...mapActions({
-      setCoins: 'coins/setCoins',
+      setCoins: 'coins/setCoins'
     }),
     async fetchMartketsLeaders() {
       this.loading = true
 
       try {
         const res = await this.$axios.$get('/coins/markets', {
-          params: this.params,
+          params: this.params
         })
 
         this.loading = false
@@ -56,8 +58,8 @@ export default {
       } catch (error) {
         console.log(error, 'error fetching coins')
       }
-    },
-  },
+    }
+  }
 }
 </script>
 
